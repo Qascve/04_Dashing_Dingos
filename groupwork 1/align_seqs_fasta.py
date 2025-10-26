@@ -8,9 +8,9 @@ import random
 import difflib
 from typing import Dict, Tuple, List
 
-
 DEFAULT_FASTAS = ["407228326.fasta", "407228412.fasta", "E.coli.fasta"]
 
+#read in fasta files
 def read_fasta_long_short(filepath: str) -> Tuple[str, str, str]:
     """
       header (line 1), seq1 (concatenated long sequence), seq2 (last line).
@@ -20,7 +20,7 @@ def read_fasta_long_short(filepath: str) -> Tuple[str, str, str]:
         raise FileNotFoundError(f"File not found: {filepath}")
 
     with p.open("r") as fh:
-        lines = [ln.strip() for ln in fh if ln.strip()]
+        lines = [ln.strip() for ln in fh if ln.strip()] #removes blank lines
 
     if not lines or not lines[0].startswith(">"):
         raise ValueError(f"Not a valid FASTA with a '>' header: {filepath}")
@@ -30,11 +30,11 @@ def read_fasta_long_short(filepath: str) -> Tuple[str, str, str]:
         )
 
     header = lines[0]
-    seq1 = "".join(lines[1:-1]).upper()  # concatenate the long sequence pieces
+    seq1 = "".join(lines[1:-1]).upper()  # concatenate the long sequence pieces, and make sure they are in uppercases
     seq2 = lines[-1].upper()             # last line is the short sequence
     return header, seq1, seq2
 
-
+#scoring alignment
 def calculate_score(s1: str, s2: str, start: int) -> Tuple[int, str]:
 
     score = 0
@@ -45,14 +45,14 @@ def calculate_score(s1: str, s2: str, start: int) -> Tuple[int, str]:
         if j >= len(s1):
             break  # no further overlap
         if s1[j] == base:
-            matched_chars.append("*")
+            matched_chars.append("*") #match
             score += 1
         else:
-            matched_chars.append("-")
+            matched_chars.append("-") #mismatch
 
     return score, ("." * start) + "".join(matched_chars)
 
-
+#find which is the best alignment by looping through all possible start positions in seq1
 def best_alignment(seq1: str, seq2: str) -> Tuple[int, int, str, str, str]:
     """
     Find the best placement of seq2 (short) along seq1 (long).
@@ -75,13 +75,14 @@ def best_alignment(seq1: str, seq2: str) -> Tuple[int, int, str, str, str]:
     aligned_s2_line = ("." * best_start) + seq2
     return best_score, best_start, best_matched_line, aligned_s2_line, seq1
 
+#discover fasta files in working directory
 def discover_fastas(candidates: List[str]) -> List[str]:
     """
     Return the subset of candidate filenames that exist in the working directory.
     """
     return [f for f in candidates if Path(f).exists()]
 
-
+# fuzzy matching of file names, find closely matched files if no exact
 def fuzzy_resolve(name: str, available: List[str]) -> str:
     if Path(name).exists():
         return name
@@ -90,7 +91,7 @@ def fuzzy_resolve(name: str, available: List[str]) -> str:
     match = difflib.get_close_matches(name, available, n=1, cutoff=0.6)
     return match[0] if match else name
 
-
+#which file is seq1 and which is seq2
 def pick_pair(
     seq1_from: str | None, seq2_from: str | None, pool: List[str], rng: random.Random
 ) -> Tuple[str, str]:
@@ -130,7 +131,8 @@ def pick_pair(
     else:
         # Only one file present; both seq1 and seq2 come from it.
         return available[0], available[0]
-    
+
+# Main function to parse arguments and run alignment  
 def main():
     parser = argparse.ArgumentParser(
         description="Align seq2 from one FASTA against seq1 from another."
@@ -170,7 +172,7 @@ def main():
         seq1_long, seq2_short
     )
 
-    # Report
+    # Report output
     print("\n=== Alignment summary ===")
     print(f"seq1 (long) from: {file_seq1}")
     print(f"  header ignored: {header1[1:]}")
