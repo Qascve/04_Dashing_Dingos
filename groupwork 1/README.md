@@ -5,7 +5,7 @@ This coursework  of GroupWork 1 (CW3), where our team collaborated to finsih cod
 
 [Project structure]
 repo-root/
-│ \n
+│ 
 ├── DNA/ # Code for DNA analysis task (including both task 1 and 2)
 ├── Oak/ # Code for Oak analysis task
 │
