@@ -4,8 +4,8 @@ Submission Date: 31/10/2025
 Individual Contributions
 ---
 [Anaga Ambady]
-"Role(s): 
-Specific Contributions:
+    Role(s): 
+    Specific Contributions:
 
     [Describe specific code/functions written]
 
@@ -14,7 +14,7 @@ Specific Contributions:
     [Describe testing/debugging work]
 
     [Describe other contributions]
-Key commits: [List 3-5 most significant commit hashes and brief descriptions]"
+    Key commits: [List 3-5 most significant commit hashes and brief descriptions]"
 
 [Chi Ching Cheng]
 "Role(s): Documentation lead, Contributor (DNA2), Debugging and testing DNA 1, reviewing teammates' work and provide feedback
