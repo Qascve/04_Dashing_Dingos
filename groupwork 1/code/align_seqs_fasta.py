@@ -1,191 +1,166 @@
-#!/usr/bin/env python3、
+#!/usr/bin/env python3
 
-#usage:  python3 align_seqs_fasta.py --seq1-from ****.fasta --seq2-from ****.fasta
-
+#usage:  python3 align_seqs_fasta.py ****.fasta ****.fasta
+import os
+import sys
+import csv
 from pathlib import Path
-import argparse
-import random
-import difflib
-from typing import Dict, Tuple, List
+from typing import Tuple, List
 
-DEFAULT_FASTAS = ["407228326.fasta", "407228412.fasta", "E.coli.fasta"]
+# get script directory
+script_dir = Path(__file__).parent
+data_dir = script_dir / ".." / "data"
+results_dir = script_dir / ".." / "results"
 
-#read in fasta files
-def read_fasta_long_short(filepath: str) -> Tuple[str, str, str]:
-    """
-      header (line 1), seq1 (concatenated long sequence), seq2 (last line).
-    """
-    p = Path(filepath)
-    if not p.exists():
-        raise FileNotFoundError(f"File not found: {filepath}")
 
-    with p.open("r") as fh:
-        lines = [ln.strip() for ln in fh if ln.strip()] #removes blank lines
+def read_fasta(filename):
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+    seq = ''
+    for line in lines:
+        if not line.startswith('>'):
+            seq += line.strip()
+    return seq.upper()
 
-    if not lines or not lines[0].startswith(">"):
-        raise ValueError(f"Not a valid FASTA with a '>' header: {filepath}")
-    if len(lines) < 3:
-        raise ValueError(
-            f"Expected at least 3 non-empty lines (header, long sequence, short sequence): {filepath}"
-        )
 
-    header = lines[0]
-    seq1 = "".join(lines[1:-1]).upper()  # concatenate the long sequence pieces, and make sure they are in uppercases
-    seq2 = lines[-1].upper()             # last line is the short sequence
-    return header, seq1, seq2
+def write_results_csv(filepath, file_seq1, file_seq2, best_score, best_start, best_matched_line, aligned_s2_line):
+    """write alignment results to CSV file"""
+    # convert to relative paths if they are absolute
+    try:
+        rel_file1 = Path(file_seq1).relative_to(Path.cwd())
+    except ValueError:
+        rel_file1 = Path(file_seq1).name
+    
+    try:
+        rel_file2 = Path(file_seq2).relative_to(Path.cwd())
+    except ValueError:
+        rel_file2 = Path(file_seq2).name
+    
+    with open(filepath, 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(["file 1 is:", str(rel_file1)])
+        writer.writerow([])  # empty row
+        writer.writerow(["file 2 is:", str(rel_file2)])
+        writer.writerow([])  # empty row
+        writer.writerow(["best score is:", best_score])
+        writer.writerow([])  # empty row
+        writer.writerow(["start position is:", best_start])
+        writer.writerow([])  # empty row
+        writer.writerow(["best matched line is:", best_matched_line])
+        writer.writerow([])  # empty row
+        writer.writerow(["aligned s2 line is:", aligned_s2_line])
 
-#scoring alignment
+
+def default_arguments():
+    
+    # define default files using relative paths from script location
+    default_file1 = data_dir / "407228412.fasta"
+    default_file2 = data_dir / "407228326.fasta"
+    
+    if len(sys.argv) == 3:
+        file_seq1 = sys.argv[1]
+        file_seq2 = sys.argv[2]
+    elif len(sys.argv) == 1:
+        # use default files
+        file_seq1 = str(default_file1.resolve())
+        file_seq2 = str(default_file2.resolve())
+    else:
+        print("Usage: python3 align_seqs_fasta.py [seq1.fasta seq2.fasta]")
+        print(f"If no files provided, defaults to {default_file1} and {default_file2}")
+        sys.exit(1)
+    
+    # check if files exist
+    if not Path(file_seq1).exists():
+        print(f"Error: File not found: {file_seq1}")
+        sys.exit(1)
+    if not Path(file_seq2).exists():
+        print(f"Error: File not found: {file_seq2}")
+        sys.exit(1)
+    
+    # read sequences using read_fasta
+    s1 = read_fasta(file_seq1)
+    s2 = read_fasta(file_seq2)
+    
+    return file_seq1, file_seq2, s1, s2
+
+
+# scoring alignment
 def calculate_score(s1: str, s2: str, start: int) -> Tuple[int, str]:
+    
+    # ensure s1 is longer than s2
+    l1 = len(s1)
+    l2 = len(s2)
+    if l1 >= l2:
+        s1 = s1
+        s2 = s2
+    else:
+        s1 = s2
+        s2 = s1
+        l1, l2 = l2, l1  # swap the two lengths
 
     score = 0
     matched_chars: List[str] = []
 
     for i, base in enumerate(s2):
         j = i + start
-        if j >= len(s1):
+        if j >= l1:
             break  # no further overlap
-        if s1[j] == base:
-            matched_chars.append("*") #match
-            score += 1
-        else:
-            matched_chars.append("-") #mismatch
+        
+        # check match and update both score and matched_chars
+        is_match = (s1[j] == base)
+        matched_chars.append("*" if is_match else "-")
+        score += is_match
 
     return score, ("." * start) + "".join(matched_chars)
 
 #find which is the best alignment by looping through all possible start positions in seq1
-def best_alignment(seq1: str, seq2: str) -> Tuple[int, int, str, str, str]:
+def best_alignment(seq1: str, seq2: str) -> Tuple[int, int, str, str]:
     """
-    Find the best placement of seq2 (short) along seq1 (long).
-    If multiple offsets tie, the last one found is kept.
+    find the best placement of seq2 (short) along seq1 (long).
+    if multiple positions have the same best score, keep the first one.
 
-    Returns:
-      best_score, best_start, matched_line, aligned_s2_line, s1
+    returns:
+      best_score: maximum number of matches
+      best_start: offset position with best score
+      best_matched_line: match pattern with '*' (match) and '-' (mismatch)
+      aligned_s2_line: seq2 with leading dots showing offset
     """
-    best_score = -1
-    best_start = 0
-    best_matched_line = ""
-
-    for start in range(len(seq1)):
-        score, matched_line = calculate_score(seq1, seq2, start)
-        if score > best_score:
-            best_score = score
-            best_start = start
-            best_matched_line = matched_line
+    # find best alignment using max() - keeps first occurrence of best score
+    find_best= max(
+        (calculate_score(seq1, seq2, start) + (start,) for start in range(len(seq1))),
+        key=lambda x: x[0]  # compare by score (first element)
+    )
+    best_score, best_matched_line, best_start = find_best
 
     aligned_s2_line = ("." * best_start) + seq2
-    return best_score, best_start, best_matched_line, aligned_s2_line, seq1
+    print(best_score, "\n", best_start, "\n", best_matched_line, "\n", aligned_s2_line)
+    return best_score, best_start, best_matched_line, aligned_s2_line
 
-#discover fasta files in working directory
-def discover_fastas(candidates: List[str]) -> List[str]:
-    """
-    Return the subset of candidate filenames that exist in the working directory.
-    """
-    return [f for f in candidates if Path(f).exists()]
 
-# fuzzy matching of file names, find closely matched files if no exact
-def fuzzy_resolve(name: str, available: List[str]) -> str:
-    if Path(name).exists():
-        return name
-    if not available:                                                       # Ensure file names match
-        return name
-    match = difflib.get_close_matches(name, available, n=1, cutoff=0.6)
-    return match[0] if match else name
 
-#which file is seq1 and which is seq2
-def pick_pair(
-    seq1_from: str | None, seq2_from: str | None, pool: List[str], rng: random.Random
-) -> Tuple[str, str]:
-    """
-    Decide which file supplies seq1 and which supplies seq2.
-    - If both provided -> use them (after fuzzy resolution).
-    - If one provided -> pick the other at random from the pool.
-    - If neither provided -> pick two at random, preferring different files.
-    """
-    available = discover_fastas(pool)
-    if not available:
-        raise FileNotFoundError(
-            "No FASTA files found. Put them in the working directory or provide full paths."
-        )
-
-    # Fuzzy resolve names to available files (helps with minor typos)
-    if seq1_from:
-        seq1_from = fuzzy_resolve(seq1_from, available)
-    if seq2_from:
-        seq2_from = fuzzy_resolve(seq2_from, available)
-
-    if seq1_from and seq2_from:
-        return seq1_from, seq2_from
-
-    if seq1_from and not seq2_from:
-        choices = [f for f in available if f != seq1_from] or available
-        return seq1_from, rng.choice(choices)
-
-    if seq2_from and not seq1_from:
-        choices = [f for f in available if f != seq2_from] or available
-        return rng.choice(choices), seq2_from
-
-    # neither provided -> draw two (prefer different files)
-    if len(available) >= 2:
-        a, b = rng.sample(available, 2)
-        return a, b
-    else:
-        # Only one file present; both seq1 and seq2 come from it.
-        return available[0], available[0]
-
-# Main function to parse arguments and run alignment  
-def main():
-    parser = argparse.ArgumentParser(
-        description="Align seq2 from one FASTA against seq1 from another."
-    )
-    parser.add_argument(
-        "--seq1-from",
-        dest="seq1_from",
-        help="File to supply the long sequence (seq1).",
-    )
-    parser.add_argument(
-        "--seq2-from",
-        dest="seq2_from",
-        help="File to supply the short sequence (seq2, last line).",
-    )
-    parser.add_argument(
-        "--seed", type=int, default=None, help="Random seed for reproducibility."
-    )
-    parser.add_argument(
-        "--pool",
-        nargs="*",
-        default=DEFAULT_FASTAS,
-        help="Candidate FASTA files to consider when random choice is needed.",
-    )
-    args = parser.parse_args()
-
-    rng = random.Random(args.seed)
-
-    # Decide which files provide seq1 and seq2
-    file_seq1, file_seq2 = pick_pair(args.seq1_from, args.seq2_from, args.pool, rng)
-
-    # Read both files and extract sequences
-    header1, seq1_long, _ = read_fasta_long_short(file_seq1)
-    header2, _, seq2_short = read_fasta_long_short(file_seq2)
-
-    # Perform alignment (seq2 is aligned along seq1)
-    best_score, best_start, matched_line, aligned_s2_line, s1 = best_alignment(
-        seq1_long, seq2_short
-    )
-
-    # Report output
+# run alignment and print results
+def run_alignment(file_seq1: str, file_seq2: str, s1: str, s2: str):
+    
+    best_score, best_start, matched_line, aligned_s2_line = best_alignment(s1, s2)
+    
     print("\n=== Alignment summary ===")
-    print(f"seq1 (long) from: {file_seq1}")
-    print(f"  header ignored: {header1[1:]}")
-    print(f"  length: {len(seq1_long)}")
-    print(f"seq2 (short) from: {file_seq2}")
-    print(f"  header ignored: {header2[1:]}")
-    print(f"  length: {len(seq2_short)}")
 
     print("\nAlignment (matches='*', leading '.' shows the offset):")
-    print(matched_line)
-    print(aligned_s2_line)
-    print(s1)
+
+    print("Best matched line is:", matched_line)
+    print("Aligned seq2 line is:", aligned_s2_line)
     print(f"\nBest score: {best_score} | Start position: {best_start}")
+
+    # write CSV
+    os.makedirs(results_dir, exist_ok=True)
+    csv_path = results_dir / "Alignment_results.csv"
+    write_results_csv(csv_path, file_seq1, file_seq2, best_score, best_start, matched_line, aligned_s2_line)
+    print(f"\nResults saved to: {csv_path}")  
+
+# main function
+def main():
+    file_seq1, file_seq2, s1, s2 = default_arguments()
+    run_alignment(file_seq1, file_seq2, s1, s2)
 
 
 if __name__ == "__main__":
