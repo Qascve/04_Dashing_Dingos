@@ -1,66 +1,113 @@
-#Assignment3: Groupwork 1
-Group Members: Anaga Ambady, Chi Ching Cheng, Yian Liu, Zhou Yang
-Submission Date: 31/10/2025
-Individual Contributions
----
-[Anaga Ambady]
-    Role(s): 
-    Specific Contributions:
+# Assignment 3: Groupwork 1
 
-    [Describe specific code/functions written]
-
-    [Describe documentation contributions]
-
-    [Describe testing/debugging work]
-
-    [Describe other contributions]
-    Key commits: [List 3-5 most significant commit hashes and brief descriptions]"
-
-[Chi Ching Cheng]
-"Role(s): Documentation lead, Contributor (DNA2), Debugging and testing DNA 1, reviewing teammates' work and provide feedback
-Specific Contributions:
-    - Documentation: Created and maintained CONTRIBUTIONS.md, summarising input of our team. Created and organised README.md. Improved formatting of the md files. 
-    - Code contributor: Contributed to implementation of DNA Task2. Before doing DNA task2, I run through DNA task1 and assisted in debugging when necessary. 
-    - Debugging: Tested both DNA task 1 and 2. Checking if the output match what we expected and ensure the scripts are free of errors. 
-    - Collaboration: provide peer feedback to other teammates, discuss in group, helping each other out, and ensuring all CW have been finished. 
-Key commits: Added README.md, CONTRIBUTIONS.md files, debugged and ensured smooth running of DNA task1 and contributed to coding and testing in DNA task2. "
-
-...
-
-#[Collaboration Process]
-Meeting Schedule: We usually met once a week online for group work and we communicated via Whatsapp (mainly for discussion, helping each other and for daily communication)
-
-Work Distribution Strategy: There are three tasks and we have four people in group so Anaga, CCC and Yian took responsibility for 1 task based on their interests. Zhou, who has strong technical skills, set up the GitHub repository, created the branches for each task and performed final check. This division allowed each member to work independently and contributing to the final output.
-
-Key Decisions: We decided to create separate branches (dna, oal) for each major task before merging into the main branch. This helped prevent merge conflict while each teammates are working in the same repository and ensured the code can be tested before the integration for submission. 
-
-Challenges and Solutions: At the beginning, the team was unfamiliar with collaborative workflows on GitHub and do not know how it can work. Through discussion and teamwork, teammates helped each other understand the process and workflow so everyone was happy collaborating and contributing effectively. 
+**Group Members:** Anaga Ambady, Chi Ching Cheng, Yian Liu, Zhou Yang  
+**Submission Date:** 31/10/2025
 
 ---
-#[Code Review Summary]
 
-[Describe the code review process used, e.g., pull request reviews, pair programming sessions]
+## Individual Contributions
 
-Pull Requests:
+### [Anaga Ambady]
+**Role(s):**  
+**Specific Contributions:**  
+- **Code/Functions Written:** [Describe specific code/functions written]  
+- **Documentation Contributions:** [Describe documentation contributions]  
+- **Testing/Debugging Work:** [Describe testing/debugging work]  
+- **Other Contributions:** [Describe other contributions]  
 
-    PR #1: [Brief description] - Reviewed by: [names]
-
-    PR #2: [Brief description] - Reviewed by: [names]
-
-    [etc.]
----
-#[Testing and Quality Assurance]
-    - each of us tested our own code individually before pushing to the corresponding branches. 
-    - teammates tested one another's work before continue working on the previous one
-    - Verifications and testing were done after individual branches were merged into the main one. 
-    - finally, before Zhou did the final push, he tested everything.
+**Key Commits:**  
+- [Commit hash] – [Brief description]  
+- [Commit hash] – [Brief description]  
+- [Commit hash] – [Brief description]  
 
 ---
-#[Declaration]
+
+### [Chi Ching Cheng]
+**Role(s):** Documentation Lead, Contributor (DNA Task 2), Debugging and Testing DNA Task 1, Reviewing teammates' work and providing feedback  
+
+**Specific Contributions:**  
+- **Documentation:** Created and maintained `CONTRIBUTIONS.md`, summarising team input. Created and organised `README.md`. Improved formatting of markdown files.  
+- **Code Contributor:** Contributed to implementation of DNA Task 2. Assisted in DNA Task 1 debugging when necessary.  
+- **Debugging:** Tested both DNA Task 1 and Task 2. Checked outputs to ensure scripts ran without errors.  
+- **Collaboration:** Provided peer feedback, participated in discussions, helped teammates, ensured completion of all tasks.  
+
+**Key Commits:**  
+- Added `README.md` and `CONTRIBUTIONS.md` files.  
+- Debugged and ensured smooth running of DNA Task 1.  
+- Contributed to coding and testing in DNA Task 2.  
+
+---
+
+### [Yian Liu]
+**Role(s):** [Add role here]  
+**Specific Contributions:**  
+- [Describe contributions]  
+
+**Key Commits:**  
+- [Commit hash] – [Brief description]  
+
+---
+
+### [Zhou Yang]
+**Role(s):** Technical Lead, GitHub Repository Manager  
+**Specific Contributions:**  
+- Set up GitHub repository and branches for each task.  
+- Performed final code checks before merging.  
+- Assisted teammates in resolving merge conflicts and testing integrated code.  
+
+**Key Commits:**  
+- [Commit hash] – [Brief description]  
+
+---
+
+## Collaboration Process
+
+**Meeting Schedule:**  
+- Met online once a week for group work.  
+- Daily communication via WhatsApp for discussion and support.  
+
+**Work Distribution Strategy:**  
+- Three tasks were divided among four members based on interests:  
+  - Anaga, CCC, and Yian took responsibility for one task each.  
+  - Zhou handled technical setup, repository management, and final integration.  
+
+**Key Decisions:**  
+- Created separate branches (`dna`, `oal`) for each major task before merging into `main`.  
+- Ensured each member could work independently and test code before integration.  
+
+**Challenges and Solutions:**  
+- Initially, the team was unfamiliar with GitHub collaborative workflows.  
+- Teammates helped each other understand processes, enabling effective collaboration.  
+
+---
+
+## Code Review Summary
+
+**Code Review Process:**  
+- Pull requests and peer reviews were used to ensure quality.  
+
+**Pull Requests:**  
+- **PR #1:** [Brief description] – Reviewed by: [names]  
+- **PR #2:** [Brief description] – Reviewed by: [names]  
+- [Additional PRs as needed]  
+
+---
+
+## Testing and Quality Assurance
+
+- Each member tested their own code before pushing to respective branches.  
+- Teammates tested one another's code before continuing work on subsequent tasks.  
+- Verification and testing were done after merging individual branches into `main`.  
+- Zhou performed final testing before the final push to the repository.  
+
+---
+
+## Declaration
+
 We declare that the above contributions are accurate and that all team members participated actively in this group work.
 
-##Signatures:
-    - 
-    - Chi Ching Cheng: CCC Date: 26/10/2025
-    - 
-    - 
+**Signatures:**  
+- Anaga Ambady: ___________  
+- Chi Ching Cheng (CCC): 26/10/2025  
+- Yian Liu: ___________  
+- Zhou Yang: ___________  
