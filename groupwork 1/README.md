@@ -7,18 +7,20 @@ This coursework  of GroupWork 1 (CW3), where our team collaborated to finsih cod
 ```
 repo-root/
 │ 
-├── DNA/              # Code for DNA analysis task (including both task 1 and 2)
-├── Oak/              # Code for Oak analysis task
-│
-├── CONTRIBUTIONS.md  # Roles and contributions
-├── README.md         # Project overview
-└── .gitignore        # Files and folders ignored by Git
+├──groupwork 1
+        │
+        ├── cod               # All the code
+        ├── data              # All data
+        ├── results           # Only .gitkeeper will be track
+        ├── CONTRIBUTIONS.md  # Roles and contributions
+        ├── README.md         # Project overview
+        └── .gitignore        # Files and folders ignored by Git
 ```
 
 ## Installation
 To set up this CW locally: in bash do:
 ```bash
-cd to your repo
+cd to a nice place
 git clone https://github.com/Qascve/Bootcamp_Group4.git
 ```
 

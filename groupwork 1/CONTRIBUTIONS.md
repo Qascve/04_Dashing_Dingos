@@ -56,8 +56,9 @@
 - Assisted teammates in resolving merge conflicts and testing integrated code.  
 
 **Key Commits:**  
-- [Commit hash] – [Brief description]  
-
+- [5a79f711bc9d3d7e4c665248a893176452bd660e] – [Clean up the file paths to meet the requirements]  
+- [cedd824b717f00b2441447bbd40d760ae005baef] – [Fix the logical errors in align_seqs_fasta.py and improve it's efficiency]
+- [5d2ddee907fef66644e1947a259f6583dd28ffbb] – [Final code testing]
 ---
 
 ## Collaboration Process
@@ -72,7 +73,7 @@
   - Zhou handled technical setup, repository management, and final integration.  
 
 **Key Decisions:**  
-- Created separate branches (`dna`, `oal`) for each major task before merging into `main`.  
+- Created separate branches (`dna`, `oak`) for each major task before merging into `main`.  
 - Ensured each member could work independently and test code before integration.  
 
 **Challenges and Solutions:**  
@@ -110,4 +111,4 @@ We declare that the above contributions are accurate and that all team members p
 - Anaga Ambady: ___________  
 - Chi Ching Cheng (CCC): 26/10/2025  
 - Yian Liu: ___________  
-- Zhou Yang: ___________  
+- Zhou Yang: 28/10/2025
