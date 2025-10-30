@@ -39,12 +39,15 @@
 ---
 
 ### [Yian Liu]
-**Role(s):** [Add role here]  
+**Role(s):** ** ** Developer (DNA Task 1), Debugging and Testing DNA Task 1，Created `align_seqs_fasta.py` based on `align_seqs.py` and tested FASTA alignment outputs.
 **Specific Contributions:**  
-- [Describe contributions]  
+- Researched the structure and format of FASTA files used in the project.  
+- Split and integrated sequence data to prepare input files for alignment.  
+- Adapted the existing logic from `align_seqs.py` and developed the first version of `align_seqs_fasta.py`.  
+- Tested the script with multiple FASTA files to ensure correct functionality and accurate output alignment results.  
 
 **Key Commits:**  
-- [Commit hash] – [Brief description]  
+- [1ec79fa] – Added `align_seqs_fasta.py` and three FASTA files for initial sequence alignment implementation.
 
 ---
 
