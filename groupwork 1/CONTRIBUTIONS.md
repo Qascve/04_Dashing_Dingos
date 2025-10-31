@@ -112,7 +112,7 @@ and filters only for the oak species (genus Quercus).
 We declare that the above contributions are accurate and that all team members participated actively in this group work.
 
 **Signatures:**  
-- Anaga Ambady: ___________  
+- Anaga Ambady: 31/10/2025  
 - Chi Ching Cheng (CCC): 26/10/2025  
 - Yian Liu: 30/10/2025 
 - Zhou Yang: 28/10/2025
