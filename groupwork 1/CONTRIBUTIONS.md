@@ -92,8 +92,8 @@
 - Pull requests and peer reviews were used to ensure quality.  
 
 **Pull Requests:**  
-- **PR #1:** [Brief description] – Reviewed by: [names]  
-- **PR #2:** [Brief description] – Reviewed by: [names]  
+- **PR #7:** [finish all dna task] – Reviewed by: [Zhou]  
+- **PR #8:** [merge dev into main] – Reviewed by: [Zhou]  
 - [Additional PRs as needed]  
 
 ---
