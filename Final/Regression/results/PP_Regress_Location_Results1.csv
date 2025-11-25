@@ -1,0 +1,26 @@
+"Location","Type.of.feeding.interaction","Predator.lifestage","Location.1","Slope","Intercept","R.squared","F.statistic","p.value"
+"Apalachicola Bay, Florida","predacious/piscivorous","adult","Apalachicola Bay, Florida",58.5651531203347,1424.35061743785,0.272161774123608,63.9423181148509,1.84034530476596e-13
+"Crooked Island Sound, Florida","predacious/piscivorous","adult","Crooked Island Sound, Florida",8.93111353176893,541.926877522503,0.152725752974716,18.2057947643321,4.47776370543988e-05
+"Gulf of Alaska","planktivorous","juvenile","Gulf of Alaska",0.438695034617116,2.0567304625579,0.012422157068332,0.540871545226875,0.466064418709937
+"Jeffreys Ledge, Gulf of Maine, New England","piscivorous","adult","Jeffreys Ledge, Gulf of Maine, New England",34.4131073455912,146366.911211797,0.00795411028252234,3.39958342123662,0.0659104610994506
+"Stellwagen Bank, Gulf of Maine, New England","predacious","adult","Stellwagen Bank, Gulf of Maine, New England",62.4633459958341,193189.957486417,0.0365473697435173,19.384145470614,1.30241103073115e-05
+"Cape Cod Bay, Gulf of Maine, New England","piscivorous","adult","Cape Cod Bay, Gulf of Maine, New England",14.2426271250125,246477.768022221,0.0281821814630598,2.49395263144274,0.117955677993823
+"Great Channel South, Gulf of Maine, New England","piscivorous","adult","Great Channel South, Gulf of Maine, New England",122.264102696787,111474.182198754,0.107377813394995,90.1008102193191,2.94754683222379e-20
+"South of Marthas Vineyard, New England","predacious","adult","South of Marthas Vineyard, New England",3481.53552195153,40054.1621508959,0.131175404198757,6.49215320077897,0.0144909018508061
+"Gulf of Maine, New England","piscivorous","adult","Gulf of Maine, New England",-198.424409208305,265888.135314902,0.0090975370512424,0.771209216727803,0.382348258082335
+"Andaman Sea (West of South Thailand)","predacious","larva","Andaman Sea (West of South Thailand)",1509.12569565978,0.00267191819116117,0.187278301457234,7.37387183998773,0.0105792556844276
+"Mid Atlantic","predacious","adult","Mid Atlantic",2.17629944204452,67.7587682741858,0.184323300728451,25.0833282342501,2.08517706983654e-06
+"NE North Sea and Skaggerak","predacious","larva / juvenile","NE North Sea and Skaggerak",12891.0179017009,-0.00894725357799645,0.679886964911185,40.3540340983879,4.28279187292492e-06
+"W Greenland","piscivorous","juvenile","W Greenland",0.0238784771425167,0.151209148178065,0.117370764153177,21.4095480425951,7.58715637966762e-06
+"French Polynesian EEZ","predacious","adult","French Polynesian EEZ",-3.51592750131948,21162.1681128017,0.000367738493249091,1.47480596235804,0.224660476834353
+"Catalan Sea","planktivorous","larva","Catalan Sea",215.612238352205,0.00406712631900231,0.104429094004287,50.9568966280062,3.96075896662663e-12
+"Western North Pacific","planktivorous","larva","Western North Pacific",178.491355360795,0.00743105214620297,0.203964756893251,114.02047535391,7.52421962094624e-24
+"Atlantic Ocean","piscivorous","adult","Atlantic Ocean",4.4530343586234,1776.30680866039,0.0604486931870679,1034.68099803088,4.5856322734514e-220
+"Off the Bay of Biscay","piscivorous","juvenile","Off the Bay of Biscay",129.439747117748,22086.8030184125,0.170096285448546,903.869455788033,8.31700384711394e-181
+"Great South Bay, Long Island, New York","piscivorous","adult","Great South Bay, Long Island, New York",5.44632116641699,14.5631853115677,0.30716099416389,130.784341694212,2.58826202946318e-25
+"Strait of Georgia","predacious","larva / juvenile","Strait of Georgia",82.0794549528908,1.5554826941074,0.166939429932788,125.646353133018,1.04853110102527e-26
+"Europe, Celtic Sea ecosystem","piscivorous","adult","Europe, Celtic Sea ecosystem",12.9897337832027,791.833537668489,0.198903821461407,518.67690068236,9.78120093069952e-103
+"Antarctic Peninsula","predacious","postlarva/juvenile","Antarctic Peninsula",0.0391861145982002,0.392505188066416,0.000113529204504767,0.252858245227549,0.615119374752388
+"Oxwich Bay, Wales","predacious","juvenile","Oxwich Bay, Wales",20.0072558960934,0.29675463293898,0.12689726865344,190.832198503148,1.25359043318182e-40
+"Greenland","planktivorous","larva","Greenland",0.0224934241833164,0.012841847290578,0.213201494276038,12.7357514764896,0.000838980835628297
+"Eastern Mediterranean","predacious","adult","Eastern Mediterranean",2.86955971449891,35.0553585365511,0.622046585580151,600.727484061145,4.03044944481191e-79
