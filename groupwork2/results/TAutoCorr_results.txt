@@ -1,0 +1,4 @@
+Autocorrelation in Key West annual mean temperature
+Observed correlation between successive years: 0.326
+Approximate permutation p-value (one-sided): 2e-04
+Conclusion (alpha = 0.05): successive years' temperatures are significantly positively correlated.
