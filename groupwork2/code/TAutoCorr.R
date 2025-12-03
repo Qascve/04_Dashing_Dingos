@@ -1,4 +1,9 @@
-data_path <- "../data/KeyWestAnnualMeanTemperature.RData"
+if (!requireNamespace("here", quietly = TRUE)) {
+  stop("Package 'here' is required. Install with install.packages('here')")
+}
+library(here)
+
+data_path <- here::here("groupwork2", "data", "KeyWestAnnualMeanTemperature.RData")
 obj_name  <- load(data_path)
 dat       <- get(obj_name)
 
@@ -6,7 +11,7 @@ temps <- dat$Temp
 
 obs_cor <- cor(temps[-length(temps)], temps[-1])
 
-set.seed(123)
+set.seed(0)
 n_perm   <- 10000
 
 perm_cor <- numeric(n_perm)
@@ -35,7 +40,7 @@ if (p_value < 0.05) {
       "positively correlated.\n", sep = "")
 }
 
-results_path <- "../results/TAutoCorr_results.txt"
+results_path <- here::here("groupwork2", "results", "TAutoCorr_results.txt")
 
 out_lines <- c(
   "Autocorrelation in Key West annual mean temperature",
@@ -57,7 +62,7 @@ writeLines(out_lines, con = results_path)
 
 cat("Results written to", results_path, "\n")
 
-png("../results/TAutoCorr_null_hist.png")
+png(filename = here::here("groupwork2", "results", "TAutoCorr_null_hist.png"))
 hist(perm_cor,
      main = "Permutation distribution of correlation",
      xlab = "Correlation (permuted data)")

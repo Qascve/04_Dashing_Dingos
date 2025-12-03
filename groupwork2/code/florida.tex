@@ -1,0 +1,53 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+
+\title{Permutation Test for Autocorrelation in Annual Mean Temperature}
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+
+Autocorrelation in climate time series is often present because measurements from
+consecutive years are not independent. As a result, the usual p-value associated
+with a Pearson correlation coefficient is not appropriate. To evaluate whether
+annual mean temperatures in Key West exhibit significant correlation between
+successive years, a permutation-based test was applied. This approach constructs
+an empirical null distribution that does not rely on the assumption of temporal
+independence.
+
+\section*{Methods}
+
+The correlation between temperatures in year $t$ and year $t+1$ was first
+calculated using the original ordering of the annual mean temperature series.
+This statistic served as the observed value.
+
+To generate the null distribution, the temperature series was randomly permuted
+10,000 times. For each permuted sequence, the correlation between adjacent
+positions was recalculated. Because the order of years is destroyed in each
+permutation, these values approximate the correlations expected when no temporal
+dependence is present.
+
+A one-sided permutation p-value was obtained as the fraction of permuted
+correlation coefficients that were greater than or equal to the observed value.
+
+\section*{Results}
+
+Figure~\ref{fig:perm_hist} shows the null distribution of correlation coefficients obtained from
+10,000 random permutations of the annual temperature series. The permutation process removes the temporal ordering,
+so these coefficients reflect the range of statistical variation expected in the absence of temporal dependence.
+The distribution is centred near zero, whereas the observed correlation from the original data (indicated by
+the black vertical line) lies markedly to its right. This disparity suggests that such a value is highly unlikely
+to arise under random permutations, thereby supporting the inference of a significant positive dependence between successive years.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{../results/TAutoCorr_null_hist.png}
+\caption{Permutation distribution of adjacent-year correlation coefficients.
+The vertical line marks the observed correlation calculated from the original
+temperature series.}
+\label{fig:perm_hist}
+\end{figure}
+
+
+\end{document}
