@@ -8,18 +8,9 @@ MyDF <- na.omit(MyDF[ , c("Predator.mass", "Prey.mass",
                           "Type.of.feeding.interaction",
                           "Location")])
 
-MyDF$Category <- interaction(MyDF$Type.of.feeding.interaction,
-                             MyDF$Predator.lifestage,
-                             MyDF$Location,
-                             drop = TRUE)
-
-categories <- unique(MyDF$Category) #give all unique combinations 
-
+locations <- unique(MyDF$Location) #only separate by location
 #create result data.frame (class)
 regress_results <- data.frame(
-  Category = character(),
-  Type.of.feeding.interaction = character(),
-  Predator.lifestage = character(),
   Location = character(),
   Slope = numeric(),
   Intercept = numeric(),
@@ -30,9 +21,9 @@ regress_results <- data.frame(
 )
 
 #the loop
-for (cat in categories) {
+for (loc in locations) {
   
-  subset_data <- subset(MyDF, Category == cat)
+  subset_data <- subset(MyDF, Location == loc)
   
   if (nrow(subset_data) > 2) {  # Only regress if more than 2 points, 1point is not enough
     
@@ -53,10 +44,7 @@ for (cat in categories) {
     regress_results <- rbind(
       regress_results,
       data.frame(
-        Category = cat,
-        Type.of.feeding.interaction = as.character(subset_data$Type.of.feeding.interaction[1]),
-        Predator.lifestage = as.character(subset_data$Predator.lifestage[1]),
-        Location = as.character(subset_data$Location[1]),
+        Location = loc,
         Slope = slope,
         Intercept = intercept,
         R.squared = r_squared,
