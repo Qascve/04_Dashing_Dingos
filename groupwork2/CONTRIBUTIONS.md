@@ -8,17 +8,19 @@
 ## Individual Contributions
 
 ### [Anaga Ambady]
-**Role(s):**  Oaks Exercise Contributer
+**Role(s):**  Oaks Exercise Contributer, README
 **Specific Contributions:**  
-- **Code/Functions Written:** Oaks_debugme.py Script
+- **Code/Functions Written:** 
+'oaks_debugme.py
 - **Documentation Contributions:** 
 - **Testing/Debugging Work:** Tested and Run code for Oaks Script  
 - **Other Contributions:** Participated in group meetings, help with group allocation
 
 **Key Commits:**  
--Writeen and Added 'Oaks_debugme.py' Script  – [Filters oak species from CSV data based on genus name matching.
+-Writeen and Added 'Oaks_debugme.py' Script  – Filters oak species from CSV data based on genus name matching.
 and filters only for the oak species (genus Quercus).
 -Tested debugging and overall script 
+-README for groupwork2
 
 ---
 
