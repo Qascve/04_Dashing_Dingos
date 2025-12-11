@@ -1,113 +1,119 @@
-# Assignment 3: Groupwork 1
+# Assignment 3: Groupwork 2
 
 **Group Members:** Anaga Ambady, Chi Ching Cheng, Yian Liu, Zhou Yang  
-**Submission Date:** 31/10/2025
+**Submission Date:** 11/12/2025
 
 ---
 
 ## Individual Contributions
 
 ### [Anaga Ambady]
-**Role(s):**  Oaks Exercise Contributer, README
+**Role(s):** Documentation Contributor, README Writer
 
 **Specific Contributions:**  
-- **Code/Functions Written:** 
-'oaks_debugme.py
-- **Documentation Contributions:** 
-- **Testing/Debugging Work:** Tested and Run code for Oaks Script  
-- **Other Contributions:** Participated in group meetings, help with group allocation
+- **Documentation:** Created `groupwork2/README.md` to document the project structure and overview.  
+- **Documentation:** Updated and formatted `CONTRIBUTIONS.md` for groupwork2.  
+- **Other Contributions:** Participated in group meetings, helped with documentation and formatting.  
 
 **Key Commits:**  
--Writeen and Added 'Oaks_debugme.py' Script  – Filters oak species from CSV data based on genus name matching.
-and filters only for the oak species (genus Quercus).
--Tested debugging and overall script 
--README for groupwork2
+- [46e9c5d] (2025-12-10) – Added `groupwork2/README.md` with project overview and structure.  
+- [c1c773d] (2025-12-10) – Updated `CONTRIBUTIONS.md` for groupwork2 contributions.  
+- [de47ac5] (2025-12-10) – Formatted `CONTRIBUTIONS.md` for better readability.  
 
 ---
 
-### [Chi Ching Cheng]
-**Role(s):** Documentation Lead, Contributor (DNA Task 2), Debugging and Testing DNA Task 1, Reviewing teammates' work and providing feedback  
+### [Chi Ching Cheng (CCC)]
+**Role(s):** Code Developer (Regression Analysis), Documentation Contributor
 
 **Specific Contributions:**  
-- **Documentation:** Created and maintained `CONTRIBUTIONS.md`, summarising team input. Created and organised `README.md`. Improved formatting of markdown files.  
-- **Code Contributor:** Contributed to implementation of DNA Task 2. Assisted in DNA Task 1 debugging when necessary.  
-- **Debugging:** Tested both DNA Task 1 and Task 2. Checked outputs to ensure scripts ran without errors.  
-- **Collaboration:** Provided peer feedback, participated in discussions, helped teammates, ensured completion of all tasks.  
+- **Code/Functions Written:** Developed `PP_Regress_loc.R` script for location-specific regression analysis.  
+- **Code Functionality:** Implemented linear regression analysis separated by Location field, outputting results to CSV file.  
+- **Documentation:** Created and maintained documentation files for groupwork2.  
+- **Testing/Debugging Work:** Tested the regression script to ensure correct functionality.  
 
 **Key Commits:**  
-- Added `README.md` and `CONTRIBUTIONS.md` files.  
-- Debugged and ensured smooth running of DNA Task 1.  
-- Contributed to coding and testing in DNA Task 2.  
+- [5044b83] (2025-11-25) – Created `PP_Regress_loc.R` script and initial regression results.
 
 ---
 
 ### [Yian Liu]
-**Role(s):** Developer (DNA Task 1), Debugging and Testing DNA Task 1，Created `align_seqs_fasta.py` based on `align_seqs.py` and tested FASTA alignment outputs.
+**Role(s):** Code Developer (Autocorrelation Analysis)
 
 **Specific Contributions:**  
-- Researched the structure and format of FASTA files used in the project.  
-- Split and integrated sequence data to prepare input files for alignment.  
-- Adapted the existing logic from `align_seqs.py` and developed the first version of `align_seqs_fasta.py`.  
-- Tested the script with multiple FASTA files to ensure correct functionality and accurate output alignment results.  
+- **Code/Functions Written:** Developed initial version of `TAutoCorr.R` script for autocorrelation analysis.  
+- **Code Functionality:** Implemented permutation test to assess significance of correlation between successive years' temperatures.  
+- **Data Processing:** Added temperature data file (`KeyWestAnnualMeanTemperature.RData`).  
+- **Testing/Debugging Work:** Tested the script and generated initial results including histogram visualization.  
 
 **Key Commits:**  
-- [1ec79fa] – Added `align_seqs_fasta.py` and three FASTA files for initial sequence alignment implementation.
+- [e335743] (2025-11-28) – Created `TAutoCorr.R` script with permutation testing implementation, added data file and initial results.  
 
 ---
 
 ### [Zhou Yang]
-**Role(s):** Technical Lead, GitHub Repository Manager  
+**Role(s):** Technical Lead, GitHub Repository Manager, Code Enhancer
+
 **Specific Contributions:**  
-- Set up GitHub repository and branches for each task.  
-- Performed final code checks before merging.  
-- Assisted teammates in resolving merge conflicts and testing integrated code.  
+- **Code Enhancement:** Improved `TAutoCorr.R` script robustness and added LaTeX compilation support.  
+- **Documentation:** Created LaTeX report (`florida.tex`) and PDF document with methods, results, and interpretation.  
+- **Code Fixes:** Fixed file structure issues and corrected errors in `PP_Regress_loc.R`.  
+- **Repository Management:** Set up git structure, managed branches, performed code reviews and merges.  
+- **Testing/Debugging Work:** Performed final code testing and integration checks.  
 
 **Key Commits:**  
-- [be6a08852c6da51985b0ed681956ea0976687788] – [add latex and robust script]  
-- [9f019d9aa66cbf341b0a4b723a6206103be36d3b] – [fix file structure, fix error in PP_Regress]
-- [] – [Final code testing]
+- [be6a088] (2025-12-03) – Added LaTeX report (`florida.tex`), PDF document, compilation script (`compileLaTeX.sh`), and improved `TAutoCorr.R` robustness.  
+- [9f019d9] (2025-12-04) – Fixed file structure and corrected errors in `PP_Regress_loc.R`.  
+- [f7badcc] (2025-12-03) – Added git keep files for results directory.  
+- [6a7cb2e] (2025-12-03) – Added git ignore configuration.  
+- Multiple PR merges: #11, #12, #13, #16, #17 – Reviewed and merged pull requests.  
+
 ---
 
 ## Collaboration Process
 
 **Meeting Schedule:**  
-- Met online once a week for group work.  
+- Met online regularly for group work coordination.  
 - Daily communication via WhatsApp for discussion and support.  
 
 **Work Distribution Strategy:**  
-- Three tasks were divided among four members based on interests:  
-  - Anaga, CCC, and Yian took responsibility for one task each.  
-  - Zhou handled technical setup, repository management, and final integration.  
+- Two main tasks were divided among team members:  
+  - **Yian Liu** took responsibility for the autocorrelation analysis task (`TAutoCorr.R`).  
+  - **CCC** took responsibility for the regression analysis task (`PP_Regress_loc.R`).  
+  - **Zhou Yang** handled technical setup, code enhancement, LaTeX documentation, and final integration.  
+  - **Anaga Ambady** focused on documentation and README creation.  
 
 **Key Decisions:**  
-- Created separate branches (`dna`, `oak`) for each major task before merging into `main`.  
+- Used separate branches (`florida`, `my-feature-branch`) for each major task before merging into `main`.  
 - Ensured each member could work independently and test code before integration.  
+- Decided to use LaTeX for formal report presentation as required.  
 
 **Challenges and Solutions:**  
-- Initially, the team was unfamiliar with GitHub collaborative workflows.  
-- Teammates helped each other understand processes, enabling effective collaboration.  
+- Initial file structure needed reorganization ,resolved by Zhou through systematic refactoring.  
+- PP_Regress script had errors that were identified and fixed during code review.  
 
 ---
 
 ## Code Review Summary
 
 **Code Review Process:**  
-- Pull requests and peer reviews were used to ensure quality.  
+- Pull requests and peer reviews were used to ensure code quality.  
 
 **Pull Requests:**  
-- **PR #11:** [merge main to florida] – Reviewed by: [Zhou]
-- **PR #12:** [All group work final regression] – Reviewed by: [Zhou]
-
-- [Additional PRs as needed]  
+- **PR #11:** [merge main to florida] – Reviewed by: Zhou Yang  
+- **PR #12:** [All group work final regression] – Reviewed by: Zhou Yang  
+- **PR #13:** [florida] – Reviewed by: Zhou Yang  
+- **PR #16:** [Florida] – Reviewed by: Zhou Yang  
+- **PR #17:** [florida] – Reviewed by: Zhou Yang  
 
 ---
 
 ## Testing and Quality Assurance
 
 - Each member tested their own code before pushing to respective branches.  
-- Teammates tested one another's code before continuing work on subsequent tasks.  
-- Verification and testing were done after merging individual branches into `main`.  
-- Zhou performed final testing before the final push to the repository.  
+- Yian Liu tested `TAutoCorr.R` and verified permutation test results.  
+- CCC tested `PP_Regress_loc.R` and verified CSV output format.  
+- Zhou Yang performed final testing and integration checks before merging.  
+- Verification was done after merging individual branches into `main`.  
 
 ---
 
@@ -116,7 +122,7 @@ and filters only for the oak species (genus Quercus).
 We declare that the above contributions are accurate and that all team members participated actively in this group work.
 
 **Signatures:**  
-- Anaga Ambady: 31/10/2025  
-- Chi Ching Cheng (CCC): 26/10/2025  
-- Yian Liu: 30/10/2025 
-- Zhou Yang: 04/12/2025
+- Anaga Ambady: 11/12/2025  
+- Chi Ching Cheng (CCC): 11/12/2025  
+- Yian Liu: 11/12/2025  
+- Zhou Yang: 11/12/2025
