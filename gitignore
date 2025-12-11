@@ -1,6 +1,0 @@
-*~ 
-*.tmp
-groupwork*/sandbox/
-groupwork*/results/*
-!groupwork*/results/.gitkeep
-.vscode
