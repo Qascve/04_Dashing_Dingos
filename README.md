@@ -10,7 +10,12 @@ repo-root/
 |       ├── results           # Only .gitkeeper will be track
 |       ├── CONTRIBUTIONS.md  # Roles and contributions
 |       ├── README.md         # Project overview
-|       └── .gitignore        # Files and folders ignored by Git
-├──groupwork *                # For future groupwork(If there is one)
-├──groupwork *
-```
+|       └── .gitignore        # Files and folders │ 
+├──groupwork 2
+        │
+        ├── code              # All the code
+        ├── data              # All data
+        ├── results           # Only .gitkeeper will be track
+        ├── CONTRIBUTIONS.md  # Roles and contributions
+        ├── README.md         # Project overview
+        └── .gitignore        # Files and folders ignored by Git

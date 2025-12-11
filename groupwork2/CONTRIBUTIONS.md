@@ -1,7 +1,7 @@
 # Assignment 3: Groupwork 1
 
 **Group Members:** Anaga Ambady, Chi Ching Cheng, Yian Liu, Zhou Yang  
-**Submission Date:** 31/10/2025
+**Submission Date:** 12/12/2025
 
 ---
 
@@ -26,18 +26,18 @@ and filters only for the oak species (genus Quercus).
 ---
 
 ### [Chi Ching Cheng]
-**Role(s):** Documentation Lead, Contributor (DNA Task 2), Debugging and Testing DNA Task 1, Reviewing teammates' work and providing feedback  
+**Role(s):** Documentation check, keep track on gropup progress, Contributor (PP_Regression), Reviewing teammates' work and providing feedback  
 
 **Specific Contributions:**  
-- **Documentation:** Created and maintained `CONTRIBUTIONS.md`, summarising team input. Created and organised `README.md`. Improved formatting of markdown files.  
-- **Code Contributor:** Contributed to implementation of DNA Task 2. Assisted in DNA Task 1 debugging when necessary.  
-- **Debugging:** Tested both DNA Task 1 and Task 2. Checked outputs to ensure scripts ran without errors.  
+- **Documentation:** Checked and adjusted content in `CONTRIBUTIONS.md` and `README.md`, summarising team input. Organised `README.md`. Improved formatting of markdown files.  
+- **Code Contributor:** Contributed to implementation of PP_Regression script. 
+- **Debugging:** Tested PP_Regression script and debug. Checked outputs to ensure scripts ran without errors.  
 - **Collaboration:** Provided peer feedback, participated in discussions, helped teammates, ensured completion of all tasks.  
 
 **Key Commits:**  
 - Added `README.md` and `CONTRIBUTIONS.md` files.  
-- Debugged and ensured smooth running of DNA Task 1.  
-- Contributed to coding and testing in DNA Task 2.  
+- Debugged and ensured smooth running of PP_Regression.  
+- Contributed to coding and testing in PP_Regression.  
 
 ---
 
@@ -63,8 +63,8 @@ and filters only for the oak species (genus Quercus).
 - Assisted teammates in resolving merge conflicts and testing integrated code.  
 
 **Key Commits:**  
-- [be6a08852c6da51985b0ed681956ea0976687788] – [add latex and robust script]  
-- [9f019d9aa66cbf341b0a4b723a6206103be36d3b] – [fix file structure, fix error in PP_Regress]
+- [PP_Regress_loc.R] – [fix file structure, fix error in PP_Regress]  
+- [florida.tex] – [add latex and robust script]
 - [] – [Final code testing]
 ---
 
@@ -80,7 +80,7 @@ and filters only for the oak species (genus Quercus).
   - Zhou handled technical setup, repository management, and final integration.  
 
 **Key Decisions:**  
-- Created separate branches (`dna`, `oak`) for each major task before merging into `main`.  
+- Created separate branches for each major task before merging into `main`.  
 - Ensured each member could work independently and test code before integration.  
 
 **Challenges and Solutions:**  
@@ -117,6 +117,6 @@ We declare that the above contributions are accurate and that all team members p
 
 **Signatures:**  
 - Anaga Ambady: 31/10/2025  
-- Chi Ching Cheng (CCC): 26/10/2025  
+- Chi Ching Cheng (CCC): 26/11/2025  
 - Yian Liu: 30/10/2025 
 - Zhou Yang: 04/12/2025
